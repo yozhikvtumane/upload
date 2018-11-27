@@ -133,3 +133,21 @@ end
 
 acdef doma
 http://www.musilek.eu/michal/pdf/deproja2.pdf
+
+to makesestiuhelnik :d :n
+    ClearScreen
+  repeat :n [
+        pendown
+       repeat 6[fd :d rt 60]
+        penup
+        left 90
+        forward :d*1.7
+        right 90
+        
+  ]
+   
+end
+
+to plastev :a :b :r
+  ClearScreen
+end
