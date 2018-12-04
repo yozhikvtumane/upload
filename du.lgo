@@ -1,0 +1,68 @@
+to trojuhelnik :a :n
+  if (:n = 0) [stop]
+  repeat 3 [
+    trojuhelnik :a/2 :n-1
+    forward :a
+    right 120
+  ]
+end
+
+to kreslitrojuhelnik :a :n
+    ClearScreen
+    right 30
+    trojuhelnik :a :n
+end
+
+to domecek :n
+
+repeat :n [
+    repeat 6 [
+      fd 60
+      right 120
+    ]
+    fd 60
+    rt 90
+    
+]
+
+end
+
+
+to rundom :n
+  ClearScreen
+  domecek :n
+end
+
+to test
+    repeat 5 [
+      fd 60
+      rt 120
+      fd 60 rt 120
+      fd 60 rt 120
+      fd 60 rt 90 fd 60
+    ]
+end
+
+
+to runtest
+  ClearScreen
+  test
+end
+
+
+
+
+to tah1
+ClearScreen
+ make "a sqrt (60 * 60 + 60 * 60)
+  print :a
+ rt 90 fd 60
+ lt 135 fd :a
+ rt 135 fd 60
+ rt 135 fd :a
+ rt 135 fd 60
+ rt 45 fd 60
+ rt 120 fd 60
+ rt 45 fd 60
+ #fd 60 rt 45 fd 60 rt 90 fd 60 rt 45 fd 60 rt 90 fd 60
+end
