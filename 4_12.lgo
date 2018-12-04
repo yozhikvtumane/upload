@@ -1,0 +1,171 @@
+to krivkakoch :a :n
+ if (:n > 0)
+ [krivkaKoch :a/3 :n-1
+ lt 60
+ krivkaKoch :a/3 :n-1
+ rt 120
+ krivkaKoch :a/3 :n-1
+ lt 60
+ krivkaKoch :a/3 :n-1]
+ if (:n = 0) [fd :a]
+end
+
+to koch :a :n
+ if (:n =0) [forward :a]
+ if (:n > 0) [
+    koch :a/3 :n-1
+    left 60
+    koch :a/3 :n-1
+    right 120
+    koch :a/3 :n-1
+    left 60
+    koch :a/3 :n-1
+   
+]
+end
+
+to kochovavlocka :a :n
+  ClearScreen
+  repeat 3 [
+  koch :a :n
+  Right 120  
+]
+end
+
+
+to strom :kmen :pocetvetvi :max :min
+  if (:pocetvetvi = 0) [stop]
+
+  forward :kmen
+  left 45
+  make "delka alea
+  strom (:kmen * (:delka /  (:max  - :min) + :min) ) (:pocetvetvi -1) :max :min
+  right 90
+  strom (:kmen *  (:delka / (:max  - :min) + :min) ) (:pocetvetvi-1) :max :min
+  left 45
+  back :kmen
+end
+
+to stromrun :kmen :pocetvetvi :max :min
+  ClearScreen  
+  strom :kmen :pocetvetvi :max :min
+end
+
+
+to nahodnecislo :min :max
+  make "delka alea * (:max - :min) + :min
+   print :delka
+end
+
+to ukazka
+  make "list [1 2 3 4 5]
+  print :list
+end
+
+to ukazka2
+  make "list [1 2 3 4 5 sest sedm]
+  print last :list
+end
+
+
+to ukazka3 :n
+    make "list [jedna dva tri ctyri pet sest]
+    print item :n :list
+end
+
+
+to ukazka4
+   make "list [jedna dva tri ctyri pet sest]
+    print item sum random 6 1 :list
+end
+
+
+
+to ukazka5
+   make "list [jedna dva tri ctyri pet sest]
+    print butfirst :list
+end
+
+to pridej :polozka
+  make "list lput :polozka :list
+  print :list
+end
+
+to fib :n
+  make "fibposl [1 2]
+  repeat :n-2 [
+      make "fibposl dalsifib :fibposl
+      print :fibposl
+  ]
+end
+
+to dalsifib :seznam
+    make "posledni last :seznam
+    make "predposledni last butlast :seznam
+    make "dalsinovecislo :posledni + :predposledni
+    output lput :dalsenovecislo :seznam
+    #output lput sum last :seznam last butlast :seznam :seznam
+end
+
+
+to fib1 :n [ :a 0  ] [ :b 1  ]
+  if :n < 1 [output :a]
+  output (fib :n-1 :b :a+:b)
+end
+
+to prvocislo :n
+  make "seznamprvocisel [2]
+  repeat :n-1 [make "seznamprvocisel dalsiprvocislo :seznamprvocisel]
+  foreach "polozka :seznamprvocisel [
+    write :polozka 
+    write char 44
+    write char 32
+]
+  write "...
+  print :seznamprvocisel
+end
+
+to dalsiprvocislo :seznam
+   make "k last :seznam
+    forever  [
+      make "k :k + 1
+      make "l 1
+      foreach "j :seznam [
+            make "l product :l modulo :k :j
+      ]
+
+    if (:l > 0) [output lput :k :seznam]
+  ]
+end
+
+to koduj :vstup
+  make "n 0 
+  make "vystup []
+  repeat count :vstup [
+    make "n :n + 1
+    make "vystup lput unicode item :n :vstup :vystup
+  ]
+ output :vystup
+end
+
+to dekoduj :vstup
+  make "n 0
+  make "vystup1 []
+  repeat count :vstup [
+    make "n :n+1
+    make "vystup1 lput char item :n :vstup :vystup1
+  
+  ]
+  output :vystup1
+end
+
+to atbas :vstup
+  make "kody koduj :vstup
+  make "vystup1 []
+  foreach "j :kody [
+      #make " :n+1 
+      make "vystup1 lput difference 155 item :n :kody :vystup1
+  ] 
+  make "vystup2 dekoduj :vystup1
+  print :vystup2
+end
