@@ -1,0 +1,377 @@
+to velikost
+#Fence
+#Wrap
+#Window - default
+#setshape 1
+SetScreenSize [200 200]
+ClearScreen
+Right 5
+fd 2000
+PenUp Home PenDown
+Right 95
+fd 2000
+end
+
+
+to startsextet
+  ClearScreen
+  setturtle 1
+  
+  make "n 0
+  repeat 6 [
+    make "n :n+1
+    setturtle :n
+    setshape :n
+    ShowTurtle
+    Home Right :n*60
+]
+end
+
+to sextet :sadainstrukci
+  make "n 0
+  repeat 6 [
+    make "n :n+1
+    setturtle :n
+    run :sadainstrukci
+]
+
+end
+
+
+to vir
+    startsextet
+    sextet [
+      setpencolor red
+      setpenshape 1
+      setpenwidth 5
+  ]
+   make "k 0
+   repeat 25 [
+      make "k :k+1
+      sextet [
+            fd :k
+            lt 300/:k
+      ]
+  ]
+end
+
+
+to vlocka :n
+
+    startsextet
+    setscreencolor blue
+    sextet [
+        setpencolor white
+        setpenshape 1
+        setpenwidth 5
+        forward :n * 2
+    ] :n
+    sextet [
+        lt 120
+        repeat 6 [
+                  right 60
+                  fd 30
+                  left 120
+                  repeat 3 [
+                    rt  60
+                    fd 15 back 15] 
+                  left 60
+                  back 15
+            ]
+    ]
+end
+
+
+
+to vlocka2
+ cs ht setsc blue
+ startsextet
+ sextet [setpc white setps 1 setpw 5 fd 75]
+ wait 60
+ sextet [lt 120 repeat 3 [rt 60 fd 30 bk 30]]
+ wait 60
+ sextet [lt 180 repeat 3 [rt 60 fd 30 lt 120 repeat 3 [rt 60 fd 12
+bk 12] lt 60 bk 30] lt 60 bk 38]
+ wait 60
+ sextet [lt 60 fd 50 bk 50 rt 120 fd 50 bk 50 lt 60 fd 25]
+end
+
+
+to lichacisla
+      for [i 1 20] [
+        write :i*2-1      
+        write char 44
+        write char 32
+     ]
+end
+
+
+to lichacisla2 :n
+    for [i 1 :n] [
+        write :i*2-1      
+        write char 44
+        write char 32
+    ]
+end
+
+
+to lichacisla3 :n
+    make "i 0
+    repeat :n [
+        make "i :i+1
+        write :i*2-1      
+        write char 44
+        write char 32
+    ]
+end
+
+
+to lichacisla4
+    for [i 1 20 2] [
+        write :i
+        write char 44
+        write char 32
+    ]
+end
+
+to preshranu :b :a
+ if (:b <= :a) [output :b]
+ if (:b > :a) [output sum mod :b :a 1]
+end
+to kopretinovasifra :n :k :text :rozpocitadlo
+ make "vystup list 1 2
+ make "i 2
+ repeat :n-2 [make "i :i+1 make "vystup lput :i :vystup]
+ make "i 0 make "pozice 1 make "pocitadlo 0
+ repeat :n
+ [make "i :i+1
+ make "vystup replace :vystup :pozice item :i :text
+ make "j :pozice
+ repeatuntil
+ [make "j preshranu :j+1 :n
+ if number? item :j :vystup [make "pocitadlo :pocitadlo+1]]
+ [or :pocitadlo = :k :i =:n]
+ make "pozice :j
+ make "pocitadlo 0]
+ print :vystup
+ cs setfontsize 20 setfontjustify [1 1]
+ make "i 0
+ repeat :n
+ [rt 360/:n*:i make "i :i+1
+ fd 150 rt 90 repeat 120 [fd 1 lt 3]
+ pu lt 90 fd 20 setheading 0 label item :i :vystup home pd]
+ setfontsize 14 pu bk 215
+ label :rozpocitadlo fd 15
+end
+
+
+
+to dialogkopretina
+    read [Zadejte text k sifrovani] "text
+    make "n count :text
+    read [Zadejte pocet slabik rozpocitadlem] "k
+    read [Zadejte text rozpocitadla] "rozp
+    kopretinovasifra :n :k :text :rozp
+
+
+end
+
+
+to zednarskykod
+ cs pu make "r screensize
+ make "polosirka div first :r 2
+ make "polovyska div last :r 2
+ setxy 10-:polosirka :polovyska-30
+ forever
+ [make "kk readchar
+ make "kod [3 0 0 0 0 mezera]
+ if or :kk=65 :kk=97 [make "kod [0 0 0 1 1 A]]
+ if or :kk=66 :kk=98 [make "kod [0 1 0 1 1 B]]
+ if or :kk=67 :kk=99 [make "kod [0 1 0 0 1 C]]
+ if or :kk=68 :kk=100 [make "kod [0 0 1 1 1 D]]
+ if or :kk=69 :kk=101 [make "kod [0 1 1 1 1 E]]
+ if or :kk=70 :kk=102 [make "kod [0 1 1 0 1 F]]
+ if or :kk=71 :kk=103 [make "kod [0 0 1 1 0 G]]
+ if or :kk=72 :kk=104 [make "kod [0 1 1 1 0 H]]
+ if or :kk=73 :kk=105 [make "kod [0 1 1 0 0 I]]
+ if or :kk=74 :kk=106 [make "kod [1 0 0 1 1 J]]
+ if or :kk=75 :kk=107 [make "kod [1 1 0 1 1 K]]
+ if or :kk=76 :kk=108 [make "kod [1 1 0 0 1 L]]
+ if or :kk=77 :kk=109 [make "kod [1 0 1 1 1 M]]
+ if or :kk=78 :kk=110 [make "kod [1 1 1 1 1 N]]
+ if or :kk=79 :kk=111 [make "kod [1 1 1 0 1 O]]
+ if or :kk=80 :kk=112 [make "kod [1 0 1 1 0 P]]
+ if or :kk=81 :kk=113 [make "kod [1 1 1 1 0 Q]]
+if or :kk=82 :kk=114 [make "kod [1 1 1 0 0 R]]
+ if or :kk=83 :kk=115 [make "kod [2 0 0 1 1 S]]
+ if or :kk=84 :kk=116 [make "kod [2 1 0 1 1 T]]
+ if or :kk=85 :kk=117 [make "kod [2 1 0 0 1 U]]
+ if or :kk=86 :kk=118 [make "kod [2 0 1 1 1 V]]
+ if or :kk=87 :kk=119 [make "kod [2 1 1 1 1 W]]
+ if or :kk=88 :kk=120 [make "kod [2 1 1 0 1 X]]
+ if or :kk=89 :kk=121 [make "kod [2 0 1 1 0 Y]]
+ if or :kk=90 :kk=122 [make "kod [2 1 1 1 0 Z]]
+ if or :kk=10 :kk=32 [make "kod [0 0 0 0 0 mezera]]
+ if :kk=8 [pu lt 90 fd 25 rt 90]
+ if :kk=27 [stop]
+ make "c first :kod
+ make "kod butfirst :kod
+ if :c="1 [pu fd 10 rt 90 fd 10 rt 90 pd setpw 5 fd 1
+ pu fd 9 rt 90 fd 10 rt 90]
+ if :c="2 [pu fd 10 rt 90 fd 7 rt 90 pd setpw 5 fd 1 bk 1 pu lt 90
+ fd 6 rt 90 pd fd 1 pu fd 9 rt 90 fd 13 rt 90]
+ if :c="3 [pu lt 90 fd 25 rt 90]
+ setpw 2
+ repeat 4
+ [make "c first :kod
+ make "kod butfirst :kod
+ if :c=0 [pu] if :c=1 [pd]
+ fd 20 rt 90]
+ pu rt 90 fd 25 lt 90
+ if x>:polosirka-30 [pu rt 180 fd 35 rt 90 setx 10-:polosirka rt 90]]
+end
+
+to jakepismeno
+forever [
+    make "pismeno readchar
+    if (:pismeno = 32) [stop]
+    print :pismeno
+]
+
+    
+end
+
+to sledujmys
+    CS
+    HideTurtle
+    animation
+    setscreensize [500 400]
+    make "velikost screensize
+    make "polosirka div first :velikost 2
+    make "polovyska div last :velikost 2
+    #print :polosirka
+    forever  [
+      make "p mouseposition
+      make "xm first :p
+      make "ym last :p
+
+      setturtle 1
+      showturtle
+      setshape 3
+      penup
+      setheading 90
+      setXY 40-:polosirka :ym
+      
+      setturtle 2
+      showturtle
+      setshape 2
+      penup
+      setheading 0
+      setXY :xm 40-:polovyska
+      
+      setturtle 3
+      showturtle
+      setshape 5
+      penup
+      setXY 40-:polosirka 40-:polovyska
+      setheading towards :p
+    ]
+    repaint
+end
+
+to svetla :h :s :d
+ pu setxy 0 90 pd setpc :h fill
+ pu setxy 0 0 pd setpc :s fill
+ pu setxy 0 minus 90 pd setpc :d fill
+end
+to semafor
+ # Nejprve nakreslime zhasnuty semafor
+ cs ht circle 40 pu fd 90 pd circle 40 pu
+ back 180 pd circle 40 setpc [64 64 64]
+ fill pu fd 90 pd fill pu fd 90 pd fill pu
+ setxy 50 140 lt 90 setpc black pd fd 100
+ lt 90 fd 280 lt 90 fd 100 lt 90 fd 280 pu
+ bk 10 lt 90 fd 10 pd fill pu
+ # a potom nakreslime ovladaci tlacitka
+ setxy minus 280 140 setheading 180
+ repeat 5
+ [pd repeat 2 [fd 40 lt 90 fd 120 lt 90]
+ pu fd 60]
+ setxy minus 220 120 setfontjustify [1 1]
+ pd setfs 20 setpc lightgray fill setpc black
+ setheading 0 label "Stop! pu back 60
+ make "popisky [Připravit Volno Pozor! Vypnuto]
+ make "n 0
+ repeat 4
+ [make "n :n+1
+ setpc lightgray fill setpc black
+ label item :n :popisky pu back 60]
+ # nyní je vše připraveno a semafor může fungovat
+ forever
+ [while [not readmouse=1] [make "p mousepos]
+ make "xm difference 300 first :p
+ make "ym sum 160 last :p
+ make "dg [64 64 64]
+ make "lo [255 220 0]
+ # Je-li mys umistena nad tlacitkem, zmenime svetla
+ if and :xm>20 140<:xm
+[if and :ym<300 260<:ym [svetla red :dg :dg]
+ if and :ym<240 200<:ym [svetla red :lo :dg]
+ if and :ym<180 140<:ym [svetla :dg :dg green]
+ if and :ym<120 80<:ym [svetla :dg :lo :dg]
+ if and :ym<60 20<:ym [svetla :dg :dg :dg]
+ ]
+ ]
+end
+
+to rozhrani
+    ClearScreen
+    guibutton "chodvpred "Dopredu
+    guiposition "chodvpred [100 100]
+    guidraw "chodvpred
+    guiaction "chodvpred [
+        repeat 50 [
+            fd 1
+        ]
+    ]
+
+    guibutton "chodvzad "Dozadu
+    guiposition "chodvzad [100 20]
+    guidraw "chodvzad
+    guiaction "chodvzad [
+        repeat 50 [
+            back 1
+        ]
+    ]
+
+    guibutton "chodvlevo "Doleva
+    guiposition "chodvlevo [100 160]
+    guidraw "chodvlevo
+    guiaction "chodvlevo [
+        repeat 50 [
+            lt 1
+        ]
+    ]
+
+    guibutton "chodvpravo "Doprava
+    guiposition "chodvpravo [100 80]
+    guidraw "chodvpravo
+    guiaction "chodvpravo [
+        repeat 50 [
+            rt 1
+        ]
+    ]
+end
+
+to sledujmys1
+  CS
+  forever [
+      make "p mouseposition
+      make "xm first :p
+      make "ym last :p
+      #write :xm :ym
+      setheading towards :p
+      fd  towards :p
+  ]
+
+end
