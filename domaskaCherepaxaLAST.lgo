@@ -1,0 +1,112 @@
+to sledujmys1
+  CS
+  setscreensize [500 400]
+  penup
+ # forever [
+if readmouse=0 [
+      make "p mouseposition
+      make "xm first :p
+      make "ym last :p
+      make "d distance :p
+      setheading towards :p
+      #write :xm :ym
+      #write :p
+      repeat :d [ #:n = distance
+          fd 1
+          wait 1
+      ]
+      #print distance
+  ]
+
+end
+
+to example
+# when the mouse moves, go to the next position  
+if readmouse=0 [setpos mousepos]  
+example  
+end
+
+to example2
+  CS
+  penup
+  #setturtle 1
+  setshape 1
+  showturtle
+
+  pohybujnekonecne
+end
+
+
+to example3
+  CS
+  make "i 0
+  forever [
+      fd 1
+      wait 5
+      make "z :i+1
+      if (:z = 100) [stop]
+  ]
+end
+
+to ctimys
+    if readmouse=0 [
+      make "p mouseposition
+      setheading towards :p
+      pohybujnekonecne
+    ] [pohybujnekonecne]
+end
+
+to moveforever
+  forever [
+   fd 3
+   wait 5
+   if mouse? = true [
+        ctimys
+        ctimys2
+    ]
+  ]
+]
+end
+
+to ctimys2
+    if readmouse=1 [
+        make "z  random 7
+        print :z
+        setshape :z
+        pohybujnekonecne
+    ] [pohybujnekonecne]
+end
+
+to pohybujnekonecne
+   forever [
+   fd 3
+   wait 5
+   if mouse? = true [
+        ctimys
+        ctimys2
+    ]
+  ]
+]
+end
+
+to ctimys3
+      if readmouse=1 [
+        make "z  random 7
+        print :z
+        setshape :z
+        pohybujnekonecne
+    ] []
+]end
+
+
+to pohybujnekonecne
+   forever [
+   fd 3
+   wait 5
+   if mouse? = true [
+        ctimys
+        ctimys2
+    ]
+  ]
+]
+end
