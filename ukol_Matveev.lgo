@@ -1,0 +1,36 @@
+to ctimys
+    if readmouse=0 [
+      make "p mouseposition
+      setheading towards :p
+      pohybujnekonecne
+    ]
+end
+
+to ctimys2
+  #Z manualu - The program is paused until the user presses the mouse.
+    if readmouse=1 [
+        setshape random 7
+        pohybujnekonecne
+    ]
+end
+
+to pohybujnekonecne
+   forever [
+   fd 3
+   wait 5
+   if mouse? = true [
+        ctimys
+        ctimys2
+    ]
+
+    make "posX round first position
+    make "posY round last position
+    make "posNew list :posX :posY
+
+    if mouseposition=:posNew [
+        stop
+    ]
+    
+  ]
+
+end
