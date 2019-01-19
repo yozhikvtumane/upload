@@ -1,0 +1,91 @@
+verze programu KAREL
+
+1.x
+---
+verze z roku 1999
+
+2.0
+---
+Backspace ukonèí provádìní programu, Esc jen pøeruší
+V Spustit... se ignorují breakpointy
+Tiskne se název plochy v Upravit
+Funguje i bez myši
+
+2.1
+---
+Anglicko-èeská verze
+Pøi pøekladu se nerozlišují háèky a èárky.
+pøíkaz Èekej
+undo,redo
+^Q,^K
+Pøi trasování se tiskne rychlost
+Pøi zmìnì souboru se tiskne vlevo dole hvìzdièka
+
+2.2
+---
+group undo
+indent blok, unindent blok
+
+3.0
+---
+Zmìnìna syntaxe jazyka. Není kompatibilní s pøedchozími verzemi !
+Aritmetické operátory, zpracování výrazù, promìnné.
+Kromì procedur lze vytváøet také funkce a podmínky.
+Nová klíèová slova: funkce, podmínka, návrat, zvolit, pøípad, èíslo, délka.
+Pøidáno menu Karel.
+Lze nastavit velikost zásobníku.
+
+3.1
+---
+poèítadlo instrukcí
+velká/malá písmena
+
+3.2
+---
+pøíkaz èekej se dá pøerušit klávesou ESC
+dopsána dokumentace
+opravena chyba v debuggeru
+
+3.3
+---
+zvýrazòování syntaxe
+rychlejší bìh programù
+poèítadlo krokù
+v menu mohou být šedivé položky
+v menu Hledat pøidáno Najít pøedchozí
+pøidìlán scrollbar
+pøi psaní se u klíèových slov doplòují háèky a èárky
+
+4.0 (27.11.2003)
+---------------
+-nové:
+verze pro Windows
+-opraveno:
+hledání smìrem od konce textu nefungovalo
+vložení breakpointu èetlo z nulového ukazatele
+mezera pøed klíèovým slovem se zvýraznila
+F10 a kliknutí mimo menu nezrušilo oznaèení menu
+
+4.1 (22.12.2005)
+----------------
+-nové:
+pøíkazy DOMÙ, RYCHLE, POMALU
+trasování se zrychlí pøi držení Shift
+automatické odsazování po pøíkazech KDYŽ, JINAK, DOKUD, AŽ, ...
+lze zmìnit klávesové zkratky a nìkteré barvy
+zmìnìno zobrazení Karla
+znaèky se mohou zobrazit èíslicí nebo úseèkami
+kopírování bloku textu je pøes Windows schránku
+v chybové zprávì Neznámý pøíkaz je vypsáno neznámé slovo
+kontrola použití neinicializovaných promìnných
+
+-opraveno:
+pøi minimalizaci okna zmizel kurzor
+úprava plochy zobrazila název souboru pøes poèítadlo krokù
+první otoèení koleèka myši bylo ignorováno
+
+4.2 (3.10.2007)
+---------------
+v možnostech lze zadat jazyk pro klíèová slova
+pøeklad do francouzštiny
+nepøístupné položky v menu se zobrazují šedivì
