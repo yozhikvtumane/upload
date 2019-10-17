@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        input {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <svg id="svgImage" width="200" height="250" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -25,6 +30,26 @@
         <path id="path1" d="M20,230 Q40,205 50,230 T90,230" fill="none" stroke="blue" stroke-width="5"/>
       </svg>
       <input id="range" type="range" min="10" max="50">
+      <!-- <input id="range1" type="range" min="10" max="50">
+      <input id="range2" type="range" min="10" max="50">
+      <input id="range3" type="range" min="10" max="50">
+      <input id="range4" type="range" min="10" max="50">
+      <input id="range5" type="range" min="10" max="50"> -->
+      
+      <!-- <label for="">M<input type="text"></label><input type="text"> -->
+      <input id="rangeNumberDT1" type="number" min="10" max="300">
+      <input id="rangeNumberDT2" type="number" min="10" max="300">
+      <!-- <input type="text"> -->
+      <!-- <input type="text">
+      <input type="text">
+      <input type="text">
+      <input type="text"> -->
+      <select name="fillColor" id="fillSelection">
+          <option value="red">Red</option>
+          <option value="orange">Orange</option>
+          <option value="green">Green</option>
+          <option value="black">Black</option>
+      </select>
       <script>
           let svgImg = document.querySelector('svg')
           let range = document.getElementById('range')
@@ -59,6 +84,27 @@
               window.removeEventListener('mousemove', rangeChange)
           })
 
+          let pathD = path1.attributes.d.value
+          let pathDT1 = pathD.split("T")[1].split(",")[0]
+          let pathDT2 = pathD.split("T")[1].split(",")[1]
+
+          function handlePathChange(e) {
+              console.dir(this.id)
+              let pathD = path1.attributes.d.value
+              if (this.id = "rangeNumberDT1") {
+
+              }
+          }
+          rangeNumberDT1.value = pathDT1
+          rangeNumberDT2.value = pathDT2
+
+
+          console.dir("pathD", pathD)
+          console.log("pathDT1", pathDT1)
+          console.log("pathDT2", pathDT2)
+
+          rangeNumberDT1.addEventListener("click", handlePathChange)
+          rangeNumberDT2.addEventListener("click", handlePathChange)
 
 
 
