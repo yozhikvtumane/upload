@@ -1,0 +1,111 @@
+{
+  "student": {
+    "name": "Vasya",
+    "surname": "Pupkeen",
+    "studentId": "95873B8880E54A",
+    "faculty": "Faculty of Science",
+    "department": "Computer Science",
+    "studyProgram": "Web Development"
+  },
+  "subjects": {
+    "id1": {
+      "nameFull": "Programming 1",
+      "nameShort": "PPRO1",
+      "department": "Department of Cybernetics",
+      "departmentShort": "DCY",
+      "hasSchedule": true,
+      "examType": "zapocet + zkouska",
+      "teacher": "John Appleseed, PhD.",
+      "roomNumber": "A15",
+      "types": ["lectures", "labs"]
+    },
+    "id2": {
+      "nameFull": "Databases 1",
+      "nameShort": "DBS1",
+      "department": "Department of Cybernetics",
+      "departmentShort": "DCY",
+      "hasSchedule": true,
+      "examType": "zapocet",
+      "teacher": "Iknow Databases, Mgr.",
+      "roomNumber": "A10",
+      "types": ["lectures", "labs"]
+    },
+    "id3": {
+      "nameFull": "Mathematics 1",
+      "nameShort": "MATH1",
+      "department": "Department of Mathematics and Statistics",
+      "departmentShort": "DMS",
+      "hasSchedule": true,
+      "examType": "zkouska",
+      "teacher": "Tomas Dlouhy, PhD.",
+      "roomNumber": "B09",
+      "types": ["lectures", "labs"]
+    },
+    "id4": {
+      "nameFull": "Web Development 1",
+      "nameShort": "WEBD1",
+      "department": "Department of Cybernetics",
+      "departmentShort": "DCY",
+      "hasSchedule": true,
+      "examType": "zapocet",
+      "teacher": "John Appleseed, PhD.",
+      "roomNumber": "A15",
+      "types": ["lectures", "labs"]
+    },
+    "id5": {
+      "nameFull": "Networks 1",
+      "nameShort": "NTW1",
+      "department": "Department of Cybernetics",
+      "departmentShort": "DCY",
+      "hasSchedule": true,
+      "examType": "zapocet",
+      "teacher": "Jaroslav Mudry, Mgr.",
+      "roomNumber": "A11",
+      "types": ["labs"]
+    }
+  },
+  "schedule": {
+    "monday": [
+      {
+        "subjectId": "id5",
+        "subject": "Networks 1",
+        "subjectShort": "NTW1",
+        "type": "lab",
+        "starts": "10:15",
+        "ends": "11:00"
+      },
+      {
+        "subjectId": "id2",
+        "subject": "Databases 1",
+        "subjectShort": "DBS1",
+        "type": "lecture",
+        "starts": "11:15",
+        "ends": "13:00"
+      }
+    ],
+    "tuesday": [
+      {
+        "subjectId": "id3",
+        "subject": "Mathematics 1",
+        "subjectShort": "MATH1",
+        "type": "lecture",
+        "starts": "9:15",
+        "ends": "11:00"
+      }
+    ],
+    "wednsday": [
+      {
+        "subjectId": "id4",
+        "subject": "Web Development 1",
+        "subjectShort": "WEBD1",
+        "type": "lecture",
+        "starts": "12:00",
+        "ends": "13:30"
+      }
+    ],
+    "thursday": {},
+    "friday": {},
+    "saturday": {},
+    "sunday": {}
+  }
+}
