@@ -1,0 +1,35 @@
+Animations with SVG.js
+
+const width = window.innerWidth
+const height = window.innerHeight - 10
+
+// Create SVG and set viewbox
+// so that we zoom into the center
+const canvas = SVG()
+  .addTo('body')
+  .size(width, height)
+  .viewbox(-width/16, -height/16, width/8, height/8)
+
+// Create template-circle for later use and timeline
+const template = new SVG.Circle({r:20})
+  .center(0,0)
+  .fill('none')
+  .stroke({
+    opacity: 0.5,
+    width: 1,
+    dasharray: [Math.PI, Math.PI]
+  })
+
+for (var i = 40; i > 0; i -= 2) {
+  let circle = template.clone()
+    .addTo(canvas)
+    .radius(i)
+    .stroke(SVG.Color.random())
+  
+  // Small circles will overtake the big
+  // at some point
+  circle.animate(10000 + i * 100, i * 50)
+    .ease('-')
+    .rotate(360, 5, 5)
+    .loop()
+}
