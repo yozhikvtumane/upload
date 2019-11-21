@@ -1,0 +1,11 @@
+závorka: квадра́тные/кру́глые/фигу́рные ско́бкиhranaté/kulaté/složené závorky
+uvozovka: кавы́чки
+` obrácená čárka
+barevný přechod - gradient
+definice - definition (defs)
+stisknout - нажать
+vektorové tvary - векторные фигуры
+značky - теги (html)
+uvnitř - внутри
+kruhový - круговой
+neprůhlednost - opacity
