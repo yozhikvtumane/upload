@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Programming SVG</title>
+	<style>
+		input,select {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<svg id="svgImage" width="500" height="500" version="1.1" xmlns="http://www.w3.org/2000/svg">
+		<path id="curvePath" d="M0 250 Q 125 0, 250 250 T 500 250" stroke="black" fill="transparent" />
+	</svg>
+	<select name="colorSelect" id="colorSelect">
+		<option value="black">Black</option>
+		<option value="red">Red</option>
+		<option value="blue">Blue</option>
+		<option value="orange">Orange</option>
+		<option value="green">Green</option>
+		<option value="violet">Violet</option>
+	</select>
+	<input type="range" max="1000" min="-1000" id="rangeX" value="125">
+	<input type="range" max="1000" min="-1000" id="rangeY" value="0">
+	<script>
+		let xRange = 125
+		let yRange = 0
+		
+		function drawXAxis(x) {
+			const pathLine = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+			const pathCoords = `M 0 ${x} H 500 ${x}`
+			pathLine.setAttribute('d', pathCoords)
+			pathLine.setAttribute('stroke', '#444')
+			pathLine.setAttribute('stroke-width', '0.1')
+			svgImage.appendChild(pathLine)
+		}
+		
+		function drawYAxis(y) {
+			const pathLine = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+			const pathCoords = `M ${y} 0 V ${y} 500 `
+			pathLine.setAttribute('d', pathCoords)
+			pathLine.setAttribute('stroke', '#444')
+			pathLine.setAttribute('stroke-width', '0.1')
+			svgImage.appendChild(pathLine)
+		}
+		
+		for (let i = 1; i <= 50; i++) {
+			drawXAxis(i * 10)
+			drawYAxis(i * 10)
+		}
+		
+		function changeColor(e) {
+			curvePath.setAttribute('stroke', e.target.value)
+		}
+		
+		function setY(e) {
+			yRange = e.target.value
+			curvePath.setAttribute('d', `M 0 250 Q ${xRange} ${yRange}, 250 250 T 500 250`)
+		}
+		
+		function setX(e) {
+			xRange = e.target.value
+			curvePath.setAttribute('d', `M 0 250 Q ${xRange} ${yRange}, 250 250 T 500 250`)
+		}
+		
+		colorSelect.addEventListener('input', changeColor)
+		rangeX.addEventListener('change', setX)
+		rangeY.addEventListener('change', setY)
+	</script>
+</body>
+</html>

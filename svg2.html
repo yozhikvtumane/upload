@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>SVG animace</title>
+	<style>
+		body {
+			background-color: #111;
+		}
+	</style>
+</head>
+<body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.0.5/svg.min.js"></script>
+	<script>
+		// Budeme psat tady
+		const width = window.innerWidth
+		const height = window.innerHeight
+		
+		const svgImage = SVG().addTo('body').size(width, height).viewbox(-width/16, -height/16, width/8, height/8)
+		
+		const template = new SVG.Circle({r: 20}).center(0, 0).fill('none').stroke({
+			opacity: 0.5,
+			width: 1,
+			dasharray: [Math.PI, Math.PI]
+		})
+		
+		for (let i = 40; i > 0; i -= 2) {
+			let circle = template.clone().addTo(svgImage).radius(i).stroke(SVG.Color.random())
+			
+			circle.animate(10000 + i * 100, i * 50).ease('-').rotate(360, 5, 5).loop()
+		}
+	</script>
+</body>
+</html>
