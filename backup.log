@@ -1,0 +1,5 @@
+#1624977675 Disk /dev/sda - 240 GB / 223 GiB - CHS 29186 255 63
+ 1 : start=     2048, size=    32768, Id=00, P
+ 2 : start=    34816, size=294613349, Id=00, P
+ 3 : start=382644224, size=  1380352, Id=00, P
+ 4 : start=384024576, size= 84848513, Id=00, P
