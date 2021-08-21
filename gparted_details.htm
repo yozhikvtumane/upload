@@ -1,0 +1,726 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='C' lang='C'>
+<head>
+<meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
+<title>GParted Details</title>
+<style type='text/css'>
+table {border:0}
+th {text-align:left}
+.number_col {text-align:right}
+</style>
+</head>
+<body>
+<p>GParted 1.0.0</p>
+<p>configuration --enable-libparted-dmraid --enable-online-resize</p>
+<p>libparted 3.3</p>
+<p>========================================</p>
+<table>
+<tr><th>Device:</th><td>/dev/sda</td></tr>
+<tr><th>Model:</th><td>ATA WDC WDS240G2G0B-</td></tr>
+<tr><th>Serial:</th><td>184157800265</td></tr>
+<tr><th>Sector size:</th><td>512</td></tr>
+<tr><th>Total sectors:</th><td>468877312</td></tr>
+<tr><td colspan='2'>&nbsp;</td></tr>
+<tr><th>Heads:</th><td>255</td></tr>
+<tr><th>Sectors/track:</th><td>2</td></tr>
+<tr><th>Cylinders:</th><td>919367</td></tr>
+<tr><td colspan='2'>&nbsp;</td></tr>
+<tr><th>Partition table:</th><td>gpt</td></tr>
+<tr><td colspan='2'>&nbsp;</td></tr>
+</table>
+<table>
+<tr><th>Partition</th><th>Type</th><th class='number_col'>Start</th><th class='number_col'>End</th><th>Flags</th><th>Partition Name</th><th>File System</th><th>Label</th><th>Mount Point</th></tr>
+<tr><td>/dev/sda1</td><td>Primary</td><td class='number_col'>2048</td><td class='number_col'>34815</td><td>msftres</td><td></td><td>unknown</td><td></td><td></td></tr>
+<tr><td>/dev/sda2</td><td>Primary</td><td class='number_col'>34816</td><td class='number_col'>144450684</td><td>msftdata</td><td></td><td>ntfs</td><td></td><td></td></tr>
+<tr><td>/dev/sda3</td><td>Primary</td><td class='number_col'>294649856</td><td class='number_col'>296615935</td><td>boot, esp</td><td></td><td>fat32</td><td></td><td></td></tr>
+<tr><td>/dev/sda4</td><td>Primary</td><td class='number_col'>296615936</td><td class='number_col'>468875263</td><td></td><td></td><td>ext4</td><td></td><td></td></tr>
+</table>
+<p>========================================</p>
+<table>
+<tr><th>Device:</th><td>/dev/sdb</td></tr>
+<tr><th>Model:</th><td>Kingston DT microDuo 3.0</td></tr>
+<tr><th>Serial:</th><td>none</td></tr>
+<tr><th>Sector size:</th><td>512</td></tr>
+<tr><th>Total sectors:</th><td>60555264</td></tr>
+<tr><td colspan='2'>&nbsp;</td></tr>
+<tr><th>Heads:</th><td>255</td></tr>
+<tr><th>Sectors/track:</th><td>2</td></tr>
+<tr><th>Cylinders:</th><td>118735</td></tr>
+<tr><td colspan='2'>&nbsp;</td></tr>
+<tr><th>Partition table:</th><td>msdos</td></tr>
+<tr><td colspan='2'>&nbsp;</td></tr>
+</table>
+<table>
+<tr><th>Partition</th><th>Type</th><th class='number_col'>Start</th><th class='number_col'>End</th><th>Flags</th><th>Partition Name</th><th>File System</th><th>Label</th><th>Mount Point</th></tr>
+<tr><td>/dev/sdb1</td><td>Primary</td><td class='number_col'>2048</td><td class='number_col'>60555263</td><td>boot, lba</td><td></td><td>fat32</td><td></td><td>/cdrom</td></tr>
+</table>
+<p>========================================</p>
+<table>
+<tr>
+<td colspan='2'>
+<b>Move /dev/sda3 to the left and grow it from 960.00 MiB to 1.00 GiB</b>&nbsp;&nbsp;00:00:12&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+calibrate /dev/sda3&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>path: /dev/sda3 (partition)<br />start: 294649856<br />end: 296615935<br />size: 1966080 (960.00 MiB)</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+check file system on /dev/sda3 for errors and (if possible) fix them&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<b><i>fsck.fat -a -w -v &apos;/dev/sda3&apos;</i></b>&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>fsck.fat 4.1 (2017-01-24)<br />Checking we can access the last sector of the filesystem<br />Boot sector contents:<br />System ID &quot;MSWIN4.1&quot;<br />Media byte 0xf8 (hard disk)<br />       512 bytes per logical sector<br />      4096 bytes per cluster<br />        42 reserved sectors<br />First FAT starts at byte 21504 (sector 42)<br />         2 FATs, 32 bit entries<br />    982528 bytes per FAT (= 1919 sectors)<br />Root directory start at cluster 6095 (arbitrary size)<br />Data area starts at byte 1986560 (sector 3880)<br />    245275 data clusters (1004646400 bytes)<br />63 sectors/track, 255 heads<br /> 294649856 hidden sectors<br />   1966080 sectors total<br />Reclaiming unconnected clusters.<br />Checking free cluster summary.<br />/dev/sda3: 476 files, 15686/245275 clusters<br /></i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i></i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+grow partition from 960.00 MiB to 72.56 GiB&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>old start: 294649856<br />old end: 296615935<br />old size: 1966080 (960.00 MiB)</i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>new start: 144451584<br />new end: 296615935<br />new size: 152164352 (72.56 GiB)</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+move file system to the left&nbsp;&nbsp;00:00:08&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+using internal algorithm
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+copy 960.00 MiB
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+finding optimal block size
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+copy 16.00 MiB using a block size of 1.00 MiB&nbsp;&nbsp;00:00:01&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>16.00 MiB of 16.00 MiB copied</i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>0.668525 seconds</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+copy 16.00 MiB using a block size of 2.00 MiB&nbsp;&nbsp;00:00:01&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>16.00 MiB of 16.00 MiB copied</i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>0.428128 seconds</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+copy 16.00 MiB using a block size of 4.00 MiB&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>16.00 MiB of 16.00 MiB copied</i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>0.477381 seconds</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+copy 16.00 MiB using a block size of 8.00 MiB&nbsp;&nbsp;00:00:01&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>16.00 MiB of 16.00 MiB copied</i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>0.467724 seconds</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+copy 16.00 MiB using a block size of 16.00 MiB&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>16.00 MiB of 16.00 MiB copied</i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>0.341778 seconds</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+optimal block size is 16.00 MiB
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+copy 880.00 MiB using a block size of 16.00 MiB&nbsp;&nbsp;00:00:05&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>880.00 MiB of 880.00 MiB copied</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+960.00 MiB (1006632960 B) copied
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+shrink partition from 72.56 GiB to 960.00 MiB&nbsp;&nbsp;00:00:01&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>old start: 144451584<br />old end: 296615935<br />old size: 152164352 (72.56 GiB)</i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>new start: 144451584<br />new end: 146417663<br />new size: 1966080 (960.00 MiB)</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+check file system on /dev/sda3 for errors and (if possible) fix them&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<b><i>fsck.fat -a -w -v &apos;/dev/sda3&apos;</i></b>&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>fsck.fat 4.1 (2017-01-24)<br />Checking we can access the last sector of the filesystem<br />Boot sector contents:<br />System ID &quot;MSWIN4.1&quot;<br />Media byte 0xf8 (hard disk)<br />       512 bytes per logical sector<br />      4096 bytes per cluster<br />        42 reserved sectors<br />First FAT starts at byte 21504 (sector 42)<br />         2 FATs, 32 bit entries<br />    982528 bytes per FAT (= 1919 sectors)<br />Root directory start at cluster 6095 (arbitrary size)<br />Data area starts at byte 1986560 (sector 3880)<br />    245275 data clusters (1004646400 bytes)<br />63 sectors/track, 255 heads<br /> 294649856 hidden sectors<br />   1966080 sectors total<br />Reclaiming unconnected clusters.<br />Checking free cluster summary.<br />/dev/sda3: 476 files, 15686/245275 clusters<br /></i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i></i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+grow partition from 960.00 MiB to 1.00 GiB&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>old start: 144451584<br />old end: 146417663<br />old size: 1966080 (960.00 MiB)</i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>new start: 144451584<br />new end: 146548735<br />new size: 2097152 (1.00 GiB)</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+grow file system to fill the partition&nbsp;&nbsp;00:00:03&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+using libparted
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p>========================================</p>
+<table>
+<tr>
+<td colspan='2'>
+<b>Move /dev/sda4 to the left and grow it from 82.14 GiB to 153.70 GiB</b>&nbsp;&nbsp;00:23:36&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+calibrate /dev/sda4&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>path: /dev/sda4 (partition)<br />start: 296615936<br />end: 468875263<br />size: 172259328 (82.14 GiB)</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+check file system on /dev/sda4 for errors and (if possible) fix them&nbsp;&nbsp;00:00:06&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<b><i>e2fsck -f -y -v -C 0 &apos;/dev/sda4&apos;</i></b>&nbsp;&nbsp;00:00:06&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>Pass 1: Checking inodes, blocks, and sizes<br />Inode 795485 extent tree (at level 2) could be narrower.  Optimize? yes        <br /><br />Pass 1E: Optimizing extent trees                                               <br />Pass 2: Checking directory structure                                           <br />Pass 3: Checking directory connectivity                                        <br />Pass 4: Checking reference counts<br />Pass 5: Checking group summary information                                     <br />                                                                               <br />/dev/sda4: ***** FILE SYSTEM WAS MODIFIED *****<br /><br />      607581 inodes used (11.27%, out of 5390336)<br />        2912 non-contiguous files (0.5%)<br />         498 non-contiguous directories (0.1%)<br />             # of inodes with ind/dind/tind blocks: 0/0/0<br />             Extent depth histogram: 570771/537/1<br />    12010029 blocks used (55.78%, out of 21532416)<br />           0 bad blocks<br />           4 large files<br /><br />      485946 regular files<br />       79555 directories<br />           8 character device files<br />           0 block device files<br />           1 fifo<br />        8069 links<br />       41932 symbolic links (36125 fast symbolic links)<br />         130 sockets<br />------------<br />      615641 files<br /></i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>e2fsck 1.45.5 (07-Jan-2020)<br /></i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+grow partition from 82.14 GiB to 153.70 GiB&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>old start: 296615936<br />old end: 468875263<br />old size: 172259328 (82.14 GiB)</i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>new start: 146548736<br />new end: 468875263<br />new size: 322326528 (153.70 GiB)</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+move file system to the left&nbsp;&nbsp;00:23:20&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<b><i>e2image -ra -p -o 76834406400 &apos;/dev/sda4&apos;</i></b>&nbsp;&nbsp;00:23:20&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i></i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>e2image 1.45.5 (07-Jan-2020)<br />Scanning inodes...<br />Copied 12009346 / 12009346 blocks (100%) in 00:22:43 at 34.42 MB/s       s<br /></i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+shrink partition from 153.70 GiB to 82.14 GiB&nbsp;&nbsp;00:00:04&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>old start: 146548736<br />old end: 468875263<br />old size: 322326528 (153.70 GiB)</i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>new start: 146548736<br />new end: 318808063<br />new size: 172259328 (82.14 GiB)</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+check file system on /dev/sda4 for errors and (if possible) fix them&nbsp;&nbsp;00:00:05&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<b><i>e2fsck -f -y -v -C 0 &apos;/dev/sda4&apos;</i></b>&nbsp;&nbsp;00:00:05&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>Pass 1: Checking inodes, blocks, and sizes<br />Pass 2: Checking directory structure                                           <br />Pass 3: Checking directory connectivity                                        <br />Pass 4: Checking reference counts<br />Pass 5: Checking group summary information                                     <br />                                                                               <br />      607581 inodes used (11.27%, out of 5390336)<br />        2912 non-contiguous files (0.5%)<br />         498 non-contiguous directories (0.1%)<br />             # of inodes with ind/dind/tind blocks: 0/0/0<br />             Extent depth histogram: 570771/537/1<br />    12010029 blocks used (55.78%, out of 21532416)<br />           0 bad blocks<br />           4 large files<br /><br />      485946 regular files<br />       79555 directories<br />           8 character device files<br />           0 block device files<br />           1 fifo<br />        8069 links<br />       41932 symbolic links (36125 fast symbolic links)<br />         130 sockets<br />------------<br />      615641 files<br /></i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>e2fsck 1.45.5 (07-Jan-2020)<br /></i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+grow partition from 82.14 GiB to 153.70 GiB&nbsp;&nbsp;00:00:00&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>old start: 146548736<br />old end: 318808063<br />old size: 172259328 (82.14 GiB)</i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>new start: 146548736<br />new end: 468873215<br />new size: 322324480 (153.70 GiB)</i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+grow file system to fill the partition&nbsp;&nbsp;00:00:01&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<b><i>resize2fs -p &apos;/dev/sda4&apos;</i></b>&nbsp;&nbsp;00:00:01&nbsp;&nbsp;&nbsp;&nbsp;( SUCCESS )
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<table>
+<tr>
+<td colspan='2'>
+<i>Resizing the filesystem on /dev/sda4 to 40290560 (4k) blocks.<br />The filesystem on /dev/sda4 is now 40290560 (4k) blocks long.<br /><br /></i>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td colspan='2'>
+<i>resize2fs 1.45.5 (07-Jan-2020)<br /></i>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
